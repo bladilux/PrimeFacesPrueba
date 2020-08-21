@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Joyeria la Lojanita</title>
+    </h:head>
+    
+    <h:body style="background-color:#DCF9F8;">
+        <center>
+        <div id="top">
+            <ui:insert name="top"><p style="border: ridge #0f0fef 2px;"><h1>Joyeria Lojanita</h1></p></ui:insert>
+        </div>
+            </center>
+        
+    
+           
+    
+
+ 
+    <h3>Remaining Chars</h3>
+    <p:inputTextarea rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} characters maximo." autoResize="false" />
+    <br />
+    <h:outputText id="display" />
+<h:form>
+    <p:growl id="msg" />
+ 
+    <h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel="Basic"/>
+ 
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value2}" itemLabel="Ajax">
+            <p:ajax update="msg" listener="#{selectBooleanView.addMessage}" />
+        </p:selectBooleanCheckbox>
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" icon="pi pi-check" update="display" oncomplete="PF('dlg').show()" />
+ 
+    <p:dialog header="Values" modal="true" resizable="false" showEffect="fade" widgetVar="dlg">
+        <h:panelGrid columns="1" id="display">
+            <h:outputText value="Value 1: #{selectBooleanView.value1}" />
+            <h:outputText value="Value 2: #{selectBooleanView.value2}" />
+        </h:panelGrid>
+    </p:dialog>
+</h:form>
+        
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+
+    </h:body>
+    
+</html>

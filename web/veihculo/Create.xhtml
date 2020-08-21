@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VeihculoCreateDlg" widgetVar="VeihculoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVeihculoTitle}">
+            <h:form id="VeihculoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{veihculoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVeihculoLabel_placa}" for="placa" />
+                        <p:inputText id="placa" value="#{veihculoController.selected.placa}" title="#{bundle.CreateVeihculoTitle_placa}" required="true" requiredMessage="#{bundle.CreateVeihculoRequiredMessage_placa}"/>
+                        <p:outputLabel value="#{bundle.CreateVeihculoLabel_año}" for="año" />
+                        <p:inputText id="año" value="#{veihculoController.selected.año}" title="#{bundle.CreateVeihculoTitle_año}" />
+                        <p:outputLabel value="#{bundle.CreateVeihculoLabel_modeo}" for="modeo" />
+                        <p:inputText id="modeo" value="#{veihculoController.selected.modeo}" title="#{bundle.CreateVeihculoTitle_modeo}" />
+                        <p:outputLabel value="#{bundle.CreateVeihculoLabel_marca}" for="marca" />
+                        <p:inputText id="marca" value="#{veihculoController.selected.marca}" title="#{bundle.CreateVeihculoTitle_marca}" />
+                        <p:outputLabel value="#{bundle.CreateVeihculoLabel_ciloindraje}" for="ciloindraje" />
+                        <p:inputText id="ciloindraje" value="#{veihculoController.selected.ciloindraje}" title="#{bundle.CreateVeihculoTitle_ciloindraje}" />
+                        <p:outputLabel value="#{bundle.CreateVeihculoLabel_paisDeFabricaion}" for="paisDeFabricaion" />
+                        <p:inputText id="paisDeFabricaion" value="#{veihculoController.selected.paisDeFabricaion}" title="#{bundle.CreateVeihculoTitle_paisDeFabricaion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{veihculoController.create}" value="#{bundle.Save}" update="display,:VeihculoListForm:datalist,:growl" oncomplete="handleSubmit(args,'VeihculoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VeihculoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

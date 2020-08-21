@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        
+        <ui:composition template="./principal.xhtml">
+
+             <ui:define name="content">
+               
+                <center>
+
+                     <img  src="https://img.goraymi.com/2018/06/13/89897fd325c31b826224eb041d1fdc9a_xl.jpg" height="400px" width="400px"/>
+                 <h:panelGrid columns="2" cellpadding="5">
+        <h:outputText value="Basic: " />
+        <p:password id="nonFeedback" value="#{passwordView.password1}" />
+ 
+        <h:outputText value="Feedback: " />
+        <p:password id="feedback" value="#{passwordView.password2}" feedback="true" />
+ 
+        <h:outputText value="Feedback (Turkish): " />
+        <p:password id="turkishFeedback" value="#{passwordView.password3}" feedback="true"
+                    promptLabel="Lütfen şifre giriniz" weakLabel="Zayıf"
+                    goodLabel="Orta seviye" strongLabel="Güçlü" />
+ 
+        <h:outputText value="Inline Feedback: " />
+        <p:password id="inlineFeedback" value="#{passwordView.password4}" feedback="true" inline="true" />
+    </h:panelGrid>
+                
+                </center>  
+
+
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>
